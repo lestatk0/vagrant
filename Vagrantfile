@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
     #Provision section
     web.vm.provision "shell", inline: "yum install -y httpd"
     web.vm.provision "shell", inline: "service httpd start; ln -s /opt/vagrantsite /var/www/html"
+    web.vm.provision "shell", inline: "echo "Hello $USER!" > /etc/motd"
     #configurate VM's options. For different providers options will be different
     web.vm.provider "virtualbox" do |vbox|
       vbox.memory = 1024
