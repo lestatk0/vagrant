@@ -1,0 +1,1 @@
+{"virtualbox":{"/opt/vagrantsite":{"guestpath":"/opt/vagrantsite","hostpath":"D:/Workspace/vagrant/vagrantsite","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/Workspace/vagrant","disabled":false,"__vagrantfile":true}}}
