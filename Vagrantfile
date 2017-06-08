@@ -3,6 +3,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "web" do |web|
     web.vm.box = "bento/centos-7.2"
+    web.vm.hostname = "centos"
     #forwarding ports. If port 8080 is blocked by another process , Vagrant auto reassign it with auto_correct
     web.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
     #create shared folder from working directory-vagrantsite to /opt/vagransite on guest
@@ -11,7 +12,7 @@ Vagrant.configure("2") do |config|
     #Provision section
     web.vm.provision "shell", inline: "yum install -y httpd"
     web.vm.provision "shell", inline: "service httpd start; ln -s /opt/vagrantsite /var/www/html"
-    web.vm.provision "shell", inline: "echo "Hello $USER!" > /etc/motd"
+    web.vm.provision "shell", path: "script.sh"
     #configurate VM's options. For different providers options will be different
     web.vm.provider "virtualbox" do |vbox|
       vbox.memory = 1024
